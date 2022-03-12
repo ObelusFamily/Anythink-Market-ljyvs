@@ -14,11 +14,11 @@
   "bugs": {},
   "homepage": "",
   "dependencies": {
+    "backend": "file:./backend",
     "concurrently": "^6.0.0",
+    "frontend": "file:./frontend",
     "pg": "^8.5.1",
     "pg-hstore": "^2.3.3",
-    "sequelize": "^6.6.2",
-    "backend": "file:./backend",
-    "frontend": "file:./frontend"
+    "sequelize": "^6.6.2"
   }
 }

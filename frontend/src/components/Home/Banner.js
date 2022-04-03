@@ -2,7 +2,7 @@ import React from "react";
 import logo from "../../imgs/logo.png";
 
 const logoStyle = {
-    width: '100%',
+  width: "100%",
 };
 
 const Banner = () => {

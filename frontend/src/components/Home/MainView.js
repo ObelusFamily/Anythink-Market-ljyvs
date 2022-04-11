@@ -102,7 +102,7 @@ const MainView = (props) => {
         </ul>
       </div>
 
-      {props.itemsCount > 0 ?
+      {props.itemsCount > 0 ? (
         <ItemList
           pager={props.pager}
           items={props.items}
@@ -110,18 +110,36 @@ const MainView = (props) => {
           itemsCount={props.itemsCount}
           currentPage={props.currentPage}
         />
-        :
-        <div id="empty" style={{ width: "30vw", height: "30vh", background: "#ffffff30", margin: "auto", display: "flex", alignItems: "center", justifyContent: "center" }}>
+      ) : (
+        <div
+          id="empty"
+          style={{
+            width: "30vw",
+            height: "30vh",
+            background: "#ffffff30",
+            margin: "auto",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
           <div>
             <div style={{ display: "flex", justifyContent: "center" }}>
               <EmojiFrownFill color="white" size="3em" />
             </div>
             <div style={{ display: "flex", justifyContent: "center" }}>
-              {props.text ? <span>No items found for "<b>{props.text}</b>".</span> : <span>No items are here... yet.</span>}
+              {props.text ? (
+                <span>
+                  No items found for "<b>{props.text}</b>".
+                </span>
+              ) : (
+                <span>No items are here... yet.</span>
+              )}
             </div>
           </div>
-        </div>}
-    </div >
+        </div>
+      )}
+    </div>
   );
 };
 

@@ -58,6 +58,20 @@ const TagFilterTab = (props) => {
   );
 };
 
+const SearchFilterTab = (props) => {
+  if (!props.text) {
+    return null;
+  }
+
+  return (
+    <li className="nav-item">
+      <button type="button" className="nav-link active">
+        <i className="ion-search"></i> {props.text}
+      </button>
+    </li>
+  );
+};
+
 const mapStateToProps = (state) => ({
   ...state.itemList,
   tags: state.home.tags,
@@ -83,6 +97,7 @@ const MainView = (props) => {
           <GlobalFeedTab tab={props.tab} onTabClick={props.onTabClick} />
 
           <TagFilterTab tag={props.tag} />
+          <SearchFilterTab text={props.text} />
         </ul>
       </div>
 

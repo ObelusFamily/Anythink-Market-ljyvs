@@ -3,6 +3,7 @@ import React from "react";
 import agent from "../../agent";
 import { connect } from "react-redux";
 import { CHANGE_TAB } from "../../constants/actionTypes";
+import { EmojiFrownFill } from "react-bootstrap-icons";
 
 const YourFeedTab = (props) => {
   if (props.token) {
@@ -101,14 +102,26 @@ const MainView = (props) => {
         </ul>
       </div>
 
-      <ItemList
-        pager={props.pager}
-        items={props.items}
-        loading={props.loading}
-        itemsCount={props.itemsCount}
-        currentPage={props.currentPage}
-      />
-    </div>
+      {props.itemsCount > 0 ?
+        <ItemList
+          pager={props.pager}
+          items={props.items}
+          loading={props.loading}
+          itemsCount={props.itemsCount}
+          currentPage={props.currentPage}
+        />
+        :
+        <div id="empty" style={{ width: "30vw", height: "30vh", background: "#ffffff30", margin: "auto", display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <div>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <EmojiFrownFill color="white" size="3em" />
+            </div>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              {props.text ? <span>No items found for "<b>{props.text}</b>".</span> : <span>No items are here... yet.</span>}
+            </div>
+          </div>
+        </div>}
+    </div >
   );
 };
 

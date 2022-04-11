@@ -48,7 +48,16 @@ class Home extends React.Component {
   render() {
     return (
       <div className="home-page">
-        <Banner onSearch={this.props.onSearch} onClear={() => this.props.onLoad( "all", agent.Items.all, Promise.all([agent.Tags.getAll(), agent.Items.all()]))} />
+        <Banner
+          onSearch={this.props.onSearch}
+          onClear={() =>
+            this.props.onLoad(
+              "all",
+              agent.Items.all,
+              Promise.all([agent.Tags.getAll(), agent.Items.all()])
+            )
+          }
+        />
 
         <div className="container page">
           <Tags tags={this.props.tags} onClickTag={this.props.onClickTag} />

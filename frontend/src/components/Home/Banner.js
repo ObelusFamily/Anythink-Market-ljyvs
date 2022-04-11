@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../../imgs/logo.png";
-import debounce from 'lodash.debounce';
+import debounce from "lodash.debounce";
 import agent from "../../agent";
 
 const logoStyle = {
@@ -10,7 +10,7 @@ const logoStyle = {
 const Banner = (props) => {
   const debouncedSearchHandler = debounce((text) => searchHandler(text), 500);
   let searchText = null;
-  
+
   let searchHandler = (text) => {
     const lowerText = text.toLowerCase();
 
@@ -38,21 +38,21 @@ const Banner = (props) => {
         <img src={logo} alt="banner" style={logoStyle} />
         <div className="row">
           <h2 className="col">A place to get</h2>
-            <div className="col">
-              <input
-                id="search-box"
-                className="form-control"
-                type="search"
-                autoComplete="off"
-                onChange={(event) => debouncedSearchHandler(event.target.value)}
-                placeholder="What is it you truly desire?"
-              />
-            </div>
-          <h2 className="col">the cool stuff.</h2>
+          <div className="col">
+            <input
+              id="search-box"
+              className="form-control"
+              type="search"
+              autoComplete="off"
+              onChange={(event) => debouncedSearchHandler(event.target.value)}
+              placeholder="What is it you truly desire?"
+            />
           </div>
+          <h2 className="col">the cool stuff.</h2>
         </div>
       </div>
-      );
-  };
+    </div>
+  );
+};
 
-    export default Banner;
+export default Banner;

@@ -110,9 +110,9 @@ const MainView = (props) => {
           itemsCount={props.itemsCount}
           currentPage={props.currentPage}
         />
-      ) : (
+      ) : props.text ? (
         <div
-          id={props.text ? "empty" : "empty-feed"}
+          id="empty"
           style={{
             width: "30vw",
             height: "30vh",
@@ -128,16 +128,14 @@ const MainView = (props) => {
               <EmojiFrownFill color="white" size="3em" />
             </div>
             <div style={{ display: "flex", justifyContent: "center" }}>
-              {props.text ? (
-                <span>
-                  No items found for "<b>{props.text}</b>".
-                </span>
-              ) : (
-                <span>No items are here... yet.</span>
-              )}
+              <span>
+                No items found for "<b>{props.text}</b>".
+              </span>
             </div>
           </div>
         </div>
+      ) : (
+        <div className="py-4 no-items">No items are here... yet.</div>
       )}
     </div>
   );

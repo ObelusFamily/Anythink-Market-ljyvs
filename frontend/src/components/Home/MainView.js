@@ -112,7 +112,7 @@ const MainView = (props) => {
         />
       ) : (
         <div
-          id="empty"
+          id={props.text ? "empty" : "empty-feed"}
           style={{
             width: "30vw",
             height: "30vh",

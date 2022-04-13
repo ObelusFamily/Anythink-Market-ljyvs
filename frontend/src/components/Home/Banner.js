@@ -39,16 +39,26 @@ const Banner = (props) => {
       <div className="container p-4 text-center">
         <img src={logo} alt="banner" style={logoStyle} />
         <div className="row">
-          <div className="col" style={{fontWeight:"500", fontSize:"1.3rem"}}>
+          <div
+            className="col"
+            style={{ fontWeight: "500", fontSize: "1.3rem" }}
+          >
             <span>A place to</span>
             <span
+              if="get-part"
               style={{ cursor: "pointer", paddingLeft: "4px" }}
               onClick={() => setShowSearch(!showSearch)}
             >
               get
             </span>
             {showSearch && (
-              <span style={{ paddingLeft: "4px", fontWeight:"300", fontSize:"1rem" }}>
+              <span
+                style={{
+                  paddingLeft: "4px",
+                  fontWeight: "300",
+                  fontSize: "1rem",
+                }}
+              >
                 <input
                   id="search-box"
                   style={{ width: "20vw" }}

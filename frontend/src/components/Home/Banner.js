@@ -45,7 +45,7 @@ const Banner = (props) => {
           >
             <span>A place to</span>
             <span
-              if="get-part"
+              id="get-part"
               style={{ cursor: "pointer", paddingLeft: "4px" }}
               onClick={() => setShowSearch(!showSearch)}
             >

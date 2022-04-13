@@ -39,7 +39,7 @@ const Banner = (props) => {
       <div className="container p-4 text-center">
         <img src={logo} alt="banner" style={logoStyle} />
         <div className="row">
-          <div className="col">
+          <div className="col" style={{fontWeight:"500", fontSize:"1.3rem"}}>
             <span>A place to</span>
             <span
               style={{ cursor: "pointer", paddingLeft: "4px" }}
@@ -48,10 +48,10 @@ const Banner = (props) => {
               get
             </span>
             {showSearch && (
-              <span style={{ paddingLeft: "4px" }}>
+              <span style={{ paddingLeft: "4px", fontWeight:"300", fontSize:"1rem" }}>
                 <input
                   id="search-box"
-                  style={{ width: "15vw" }}
+                  style={{ width: "20vw" }}
                   type="search"
                   autoComplete="off"
                   onChange={(event) =>

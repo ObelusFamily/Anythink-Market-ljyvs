@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../imgs/logo.png";
 import debounce from "lodash.debounce";
 import agent from "../../agent";
@@ -8,7 +8,9 @@ const logoStyle = {
 };
 
 const Banner = (props) => {
-  const debouncedSearchHandler = debounce((text) => searchHandler(text), 500);
+  const [showSearch, setShowSearch] = useState(false);
+
+  const debouncedSearchHandler = debounce((text) => searchHandler(text), 300);
   let searchText = null;
 
   let searchHandler = (text) => {
@@ -37,18 +39,40 @@ const Banner = (props) => {
       <div className="container p-4 text-center">
         <img src={logo} alt="banner" style={logoStyle} />
         <div className="row">
-          <h2 className="col">A place to get</h2>
-          <div className="col">
-            <input
-              id="search-box"
-              className="form-control"
-              type="search"
-              autoComplete="off"
-              onChange={(event) => debouncedSearchHandler(event.target.value)}
-              placeholder="What is it you truly desire?"
-            />
+          <div
+            className="col"
+            style={{ fontWeight: "500", fontSize: "1.3rem" }}
+          >
+            <span>A place to</span>
+            <span
+              id="get-part"
+              style={{ cursor: "pointer", paddingLeft: "4px" }}
+              onClick={() => setShowSearch(!showSearch)}
+            >
+              get
+            </span>
+            {showSearch && (
+              <span
+                style={{
+                  paddingLeft: "4px",
+                  fontWeight: "300",
+                  fontSize: "1rem",
+                }}
+              >
+                <input
+                  id="search-box"
+                  style={{ width: "20vw" }}
+                  type="search"
+                  autoComplete="off"
+                  onChange={(event) =>
+                    debouncedSearchHandler(event.target.value)
+                  }
+                  placeholder="What is it you truly desire?"
+                />
+              </span>
+            )}
+            <span style={{ paddingLeft: "4px" }}>the cool stuff.</span>
           </div>
-          <h2 className="col">the cool stuff.</h2>
         </div>
       </div>
     </div>
